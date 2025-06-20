@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Industrial & Production Engineer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #222;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background: #121212;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: #374151;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+
+    nav a:hover, nav a.active {
+      background: #4b5563;
+    }
+
+    #darkModeToggle {
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      background: #f9fafb;
+      border: none;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .section {
+      display: none;
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .active-section {
+      display: block;
+    }
+
+    footer {
+      background: #1f2937;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 15px;
+    }
+
+    .cover-photo {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="cover.jpg" alt="Cover Photo" class="cover-photo">
+    <img src="profile.jpg" alt="Profile Image" class="profile-img">
+    <h1>John Doe</h1>
+    <p>Industrial & Production Engineer | Research Enthusiast</p>
+    <button id="darkModeToggle">🌙</button>
+  </header>
+
+  <nav>
+    <a href="#" onclick="showSection('home')" class="active">Home</a>
+    <a href="#" onclick="showSection('research')">Research</a>
+    <a href="#" onclick="showSection('education')">Education</a>
+    <a href="#" onclick="showSection('experience')">Experience</a>
+    <a href="#" onclick="showSection('activities')">Activities</a>
+    <a href="#" onclick="showSection('skills')">Skills</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+  </nav>
+
+  <div id="home" class="section active-section">
+    <h2>Welcome</h2>
+    <p>Hello! I'm John Doe, an Industrial and Production Engineer passionate about smart manufacturing, operational performance, and AI-driven decision-making. Welcome to my professional portfolio showcasing my academic work, research, and skills.</p>
+  </div>
+
+  <div id="research" class="section">
+    <h2>Research</h2>
+    <ul>
+      <li><strong>AI-Driven Industry 4.0 Framework for Smart Manufacturing</strong><br>
+        Improving decision-making and sustainability in Australian industrial operations (2025)</li>
+      <li><strong>Federated Learning in Industrial Energy Management</strong><br>
+        A decentralized approach to AI optimization (2024)</li>
+    </ul>
+    <p>Total Publications: <strong>2</strong></p>
+  </div>
+
+  <div id="education" class="section">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>BSc in Industrial & Production Engineering</strong><br>XYZ University, 2020–2024</li>
+      <li><strong>High School Certificate</strong><br>ABC College, 2018–2020</li>
+    </ul>
+  </div>
+
+  <div id="experience" class="section">
+    <h2>Experience</h2>
+    <ul>
+      <li><strong>Research Intern, Smart Manufacturing Lab</strong><br>
+        Conducted simulations and wrote literature reviews on Industry 4.0 AI adoption.</li>
+      <li><strong>Industrial Trainee, ABC Manufacturing</strong><br>
+        Optimized production workflow and introduced Power BI for reporting.</li>
+    </ul>
+  </div>
+
+  <div id="activities" class="section">
+    <h2>Activities</h2>
+    <ul>
+      <li>Organized National TechFest 2024 as Lead Coordinator</li>
+      <li>Volunteer, Clean Energy Awareness Campaign</li>
+      <li>President, Robotics and Automation Club</li>
+    </ul>
+  </div>
+
+  <div id="skills" class="section">
+    <h2>Skills</h2>
+    <ul>
+      <li>Python, Power BI, MS Office Suite</li>
+      <li>Data Visualization and Analytics</li>
+      <li>Research Writing and Simulation Tools</li>
+    </ul>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact</h2>
+    <p>📧 Email: johndoe@example.com</p>
+    <p>📍 Location: Dhaka, Bangladesh</p>
+    <p>📱 LinkedIn: <a href="https://linkedin.com/in/johndoe" target="_blank">linkedin.com/in/johndoe</a></p>
+  </div>
+
+  <footer>
+    <p>© 2025 John Doe</p>
+    <div class="social-links">
+      <a href="https://github.com/johndoe" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/johndoe" target="_blank">LinkedIn</a> |
+      <a href="https://twitter.com/johndoe" target="_blank">Twitter</a>
+    </div>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      const sections = document.querySelectorAll('.section');
+      sections.forEach(section => section.classList.remove('active-section'));
+      document.getElementById(id).classList.add('active-section');
+
+      const navLinks = document.querySelectorAll('nav a');
+      navLinks.forEach(link => link.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    const darkToggle = document.getElementById('darkModeToggle');
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
