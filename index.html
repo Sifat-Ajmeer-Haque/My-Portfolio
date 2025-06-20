@@ -1,314 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sifat Ajmeer Haque | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
     :root {
-      --accent: #3b82f6;
-      --bg-light: #ffffff;
-      --bg-dark: #0f172a;
-      --text-light: #1e293b;
-      --text-dark: #f8fafc;
-      --link-light: #3b82f6;
-      --link-dark: #60a5fa;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      --primary-bg: #f5f5f5;
+      --primary-text: #2b2b2b;
+      --secondary-bg: #ffffff;
+      --accent: #0066cc;
+      --dark-bg: #1a1a1a;
+      --dark-secondary-bg: #2a2a2a;
+      --dark-text: #e0e0e0;
+      --dark-accent: #3399ff;
     }
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-dark);
-      transition: 0.4s ease;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 17px;
+      background: var(--primary-bg);
+      color: var(--primary-text);
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
     }
-    body.light {
-      background-color: var(--bg-light);
-      color: var(--text-light);
-    }
-    body a {
-      color: var(--link-dark);
-      text-decoration: none;
-    }
-    body.light a {
-      color: var(--link-light);
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
     }
     header {
-      background: url('A_digital_illustration_in_a_futuristic_and_technol.png') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.7);
       padding: 2rem;
-      border-radius: 12px;
-      color: white;
       text-align: center;
-      animation: fadeIn 2s ease;
-    }
-    .overlay h1 {
-      font-size: 3rem;
-      animation: slideDown 1s ease;
-    }
-    .overlay p {
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
-      animation: slideUp 1s ease;
-    }
-    .dark-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      z-index: 1000;
-      color: var(--accent);
+      background: var(--accent);
+      color: #fff;
     }
     nav {
-      position: sticky;
-      top: 0;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      background: var(--bg-dark);
-      padding: 1rem;
       gap: 1rem;
-      z-index: 100;
+      background: var(--secondary-bg);
+      padding: 1rem;
     }
-    body.light nav {
-      background: var(--bg-light);
+    body.dark nav {
+      background: var(--dark-secondary-bg);
     }
-    nav button {
+    nav a {
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      color: var(--primary-text);
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+    body.dark nav a {
+      color: var(--dark-text);
+    }
+    nav a.active,
+    nav a:hover {
       background: var(--accent);
-      border: none;
-      color: white;
-      padding: 0.6rem 1rem;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s;
+      color: #fff;
     }
-    nav button:hover {
-      background: #1d4ed8;
-    }
-    section {
-      display: none;
+    .section {
       max-width: 900px;
-      margin: 3rem auto;
-      padding: 2rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.05);
-      animation: fadeIn 0.6s ease;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--secondary-bg);
+      border-radius: 8px;
+      display: none;
     }
-    body.light section {
-      background: rgba(0, 0, 0, 0.03);
+    body.dark .section {
+      background: var(--dark-secondary-bg);
     }
-    section.active {
+    .section.active {
       display: block;
     }
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
+    h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .skills div {
-      border-left: 4px dotted var(--accent);
-      padding-left: 1rem;
+    ul {
+      list-style: disc inside;
+      line-height: 1.6;
     }
-    .contact-btn {
+    ul li a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    ul li a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--secondary-bg);
+    }
+    body.dark footer {
+      background: var(--dark-secondary-bg);
+    }
+    #darkToggle {
       position: fixed;
-      bottom: 1rem;
+      top: 1rem;
       right: 1rem;
       background: var(--accent);
-      color: white;
       border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 50px;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
       cursor: pointer;
-      z-index: 1000;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
-    .social-icons {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: var(--accent);
-      transition: 0.3s;
-    }
-    .social-icons a:hover {
-      color: #ffffff;
-    }
-    .welcome-screen {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.95);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      z-index: 2000;
-      animation: fadeOut 2.5s forwards 2.5s;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeOut {
-      to { opacity: 0; visibility: hidden; }
-    }
-    @keyframes slideDown {
-      from { transform: translateY(-50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+      z-index: 10;
     }
   </style>
 </head>
 <body>
-  <div class="welcome-screen">🍹 Hello, This is Sifat Ajmeer Haque</div>
+  <button id="darkToggle">Toggle Dark Mode</button>
+
   <header>
-    <div class="overlay">
-      <h1>Sifat Ajmeer Haque</h1>
-      <p>Industrial and Production Engineer | Research Enthusiast | Smart Manufacturing | Industry 4.0</p>
-    </div>
+    <h1>Sifat Ajmeer Haque</h1>
+    <p>Industrial & Production Engineer | Research Enthusiast </p>
   </header>
 
-  <button class="dark-toggle" onclick="toggleDarkMode()">☀️</button>
-  <button class="contact-btn" onclick="showSection('contact')">Contact Me</button>
-
   <nav>
-    <button onclick="showSection('about')">About</button>
-    <button onclick="showSection('research')">Research</button>
-    <button onclick="showSection('education')">Education</button>
-    <button onclick="showSection('experience')">Experience</button>
-    <button onclick="showSection('activities')">Activities</button>
-    <button onclick="showSection('skills')">Skills</button>
-    <button onclick="showSection('awards')">Awards</button>
-    <button onclick="showSection('contact')">Contact</button>
+    <a href="#" onclick="showSection('about')" class="active">About</a>
+    <a href="#" onclick="showSection('education')">Education</a>
+    <a href="#" onclick="showSection('research')">Research</a>
+    <a href="#" onclick="showSection('experience')">Experience</a>
+    <a href="#" onclick="showSection('activities')">Activities</a>
+    <a href="#" onclick="showSection('skills')">Skills</a>
+    <a href="#" onclick="showSection('awards')">Awards</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
   </nav>
 
-  <section id="about" class="active">
-    <h2>👤 About Me</h2>
-    <p>Hi! I'm an Industrial and Production Engineer with a keen interest in smart manufacturing, data-driven systems, and innovative research. I was born in Rajshahi, and ever since I can remember, I’ve been fascinated by how things work and how they can work better.
-
-I studied Industrial and Production Engineering, where I developed a strong foundation in systems thinking, process optimization, and operational efficiency. Over time, I became especially interested in how emerging technologies like Artificial Intelligence (AI) and Industry 4.0 can transform traditional manufacturing into smarter, more sustainable, and agile operations.
-
-<p>My current research explores AI-driven solutions for decision-making and performance improvement in the manufacturing sector, with a focus on the unique challenges and opportunities within Australian industries. I enjoy turning complex data into actionable insights using tools like Python, Power BI, and MS Office, and I’m always looking for new ways to bridge the gap between innovation and real-world impact.</p>
-
-Whether through research, collaboration, or hands-on projects, I’m passionate about helping shape the future of industrial operations.
-
-</p>
+  <section id="about" class="section active">
+    <h2>About Me</h2>
+    <p><b>Assalamualaikum</b> (Peace be upon you), welcome to my portfolio! Here, I share my academic journey, research, and skills. I'm an Industrial and Production Engineer with a keen interest in smart manufacturing, data‑driven systems, and innovative research. Born in Rajshahi, I've always been fascinated by optimising how things work. My studies instilled systems thinking, process optimisation, and operational efficiency. I enjoy turning complex data into actionable insights and I'm always looking for a new ways to bridge the gap between innovation and real-world impact. Whether through research, collaboration or hands-on projects, I'm passionate about helping shape the future of industrial operations. </p>
   </section>
 
-  <!-- Inserted Details -->
-  <section id="education">
-  <h2>🎓 Education</h2>
-  <ul>
-    <li><strong>BSc in Industrial and Production Engineering</strong><br>Jashore University of Science and Technology (2018–2023)</li>
-    <li><strong>HSC (Science)</strong><br>New Government Degree College, Rajshahi (2016)<br>GPA: 5.00 / 5.00</li>
-    <li><strong>SSC (Science)</strong><br>Maskatadighi High School and College, Rajshahi (2014)<br>GPA: 5.00 / 5.00</li>
-  </ul>
-</section>
+  <section id="education" class="section">
+    <h2>🎓Education</h2>
+    <ul>
+      <li><strong>BSc in Industrial & Production Engineering</strong> – Jashore University of Science and Technology (2018–2023)</li>
+      <li><strong>HSC (Science)</strong> – New Government Degree College, Rajshahi (2016), GPA: 5.00/5.00</li>
+      <li><strong>SSC (Science)</strong> – Maskatadighi High School & College (2014), GPA: 5.00/5.00</li>
+    </ul>
+  </section>
 
-<section id="research">
-  <h2>📚 Research & Publications</h2>
-  <ul>
-    <li><strong><a href="https://doi.org/10.1108/TQM-08-2023-0247" target="_blank">Barriers to TQM Implementation in SMEs in Bangladesh: An Interpretive Structural Modeling Approach</a></strong><br>The TQM Journal, 2023</li>
-    <li><strong><a href="https://doi.org/10.1108/BIJ-06-2023-0371" target="_blank">Identification and Prioritization of Barriers to Industry 4.0 Adoption</a></strong><br>Benchmarking Journal, 2024</li>
-    <li><strong><a href="https://doi.org/10.46254/BA07.20240193" target="_blank">Industry 4.0-Enabled SMED Implementation for Improving Pipe Extrusion Efficiency: A Case Study</a></strong><br>7th IEOM Bangladesh Conference, 2024</li>
-    <li><strong>A Hierarchical Framework for Green Supply Chain Management in the Construction Sector of Bangladesh</strong><br>ICMERE Conference, 2023</li>
-    <li><strong>Improving Supply Chain Effectiveness: Bangladesh Pharmaceutical Industry</strong><br>Submitted to Supply Chain Analytics, 2025</li>
-  </ul>
-</section>
+  <section id="research" class="section">
+    <h2>📚Research & Publications</h2>
+    <ul>
+      <li><a href="https://doi.org/10.1108/TQM-08-2023-0247" target="_blank"><strong>Barriers to TQM Implementation in SMEs in Bangladesh: An Interpretive Structural Modeling Approach</strong></a><br>The TQM Journal (2023), Publisher: Emerald Publishing Limited</li>
+      <li><a href="https://doi.org/10.1108/BIJ-06-2023-0371" target="_blank"><strong>Identification and prioritization of barriers to Industry 4.0 adoption in the context of food and beverage industries of Bangladesh</strong></a><br>Benchmarking: An International Journal (2024), Publisher: Emerald Publishing Limited</li>
+      <li><a href="https://doi.org/10.46254/BA07.20240193" target="_blank"><strong>Industry 4.0‑Enabled SMED Implementation for Improving Pipe Extrusion Efficiency: A Case Study</strong></a><br>7th IEOM Bangladesh Conference (2024), Publisher: IEOM Society International</li>
+      <li><a href="https://www.researchgate.net/publication/380402176_A_HIERARCHICAL_FRAMEWORK_FOR_ASSESSING_THE_DRIVERS_AND_BARRIERS_TO_IMPLEMENTING_GREEN_SUPPLY_CHAIN_MANAGEMENT_IN_THE_CONSTRUCTION_SECTOR_OF_BANGLADESH" target="_blank"><strong>A Hierarchical Framework for Assessing The Drivers and Barriers to Implementing Green Supply Chain Management in the Construction Sector of Bangladesh</strong></a><br>ICMERE Conference (2023)</li>
+</ul>
+  </section>
 
-<section id="awards">
-  <h2>🏆 Awards & Recognitions</h2>
-  <ul>
-    <li><strong>Key Employee Recognition</strong><br>Akij Plastics Limited, January 2025<br>Recognized for contributing to the company’s record monthly production.</li>
-  </ul>
-</section>
+  <section id="experience" class="section">
+    <h2>💼Work Experience</h2>
+    <ul>
+      <li><strong>Assistant Officer – Production Planning</strong><br>Akij Plastics Limited, July 2023–Present</li>
+      <li><strong>Executive – Production (Finishing)</strong><br>Square Apparels Limited, June 2023–July 2023</li>
+    </ul>
+  </section>
 
-<section id="experience">
-  <h2>💼 Work Experience</h2>
-  <ul>
-    <li><strong>Assistant Officer – Production Planning</strong><br>Akij Plastics Limited, July 2023 – Present</li>
-    <li><strong>Executive – Production (Finishing)</strong><br>Square Apparels Limited, June 2023 – July 2023</li>
-  </ul>
-</section>
+  <section id="activities" class="section">
+    <h2>🎯Extracurricular Activities</h2>
+    <ul>
+      <li>Organizer, APFL Football Tournament 2024 at Akij Economic Zone</li>
+      <li>Member, Association of IPE, JUST (2018–Present)</li>
+      <li>Anchor & Event Organizer, JUST (2018–2022)</li>
+      <li>Member, Robotic Club & Bangabandhu Career Club, JUST (2019–2021)</li>
+      <li>Sports Representative (Volleyball, Cricket, Football) (2018–2022)</li>
+      <li>Volunteer, Nobo Utthan Bangladesh (2020–2022)</li>
+    </ul>
+  </section>
 
-<section id="activities">
-  <h2>🎯 Extracurricular Activities</h2>
-  <ul>
-    <li>Organizer, APFL Football Tournament 2024 at Akij Economic Zone</li>
-    <li>Member – Association of IPE, JUST (2018–Present)</li>
-    <li>Anchor & Event Organizer – JUST (2018–2022)</li>
-    <li>Member – Robotic Club, JUST (2019–2021)</li>
-    <li>Member – Bangabandhu Career Club, JUST (2019–2021)</li>
-    <li>Sports Representative – Volleyball, Cricket, Football (2018–2022)</li>
-    <li>Volunteer – Nobo Utthan Bangladesh (2020–2022)</li>
-  </ul>
-</section>
+  <section id="skills" class="section">
+    <h2>🛠Skills</h2>
+    <ul>
+      <li><strong>Tools & Technologies:</strong> Python, Power BI, MS Office</li>
+      <li><strong>Research & Analytics:</strong> SEM, ISM, AHP, Fuzzy TOPSIS</li>
+      <li><strong>Soft Skills:</strong> Public Speaking, Team Leadership, Event Management</li>
+      <li><strong>Manufacturing:</strong> Lean, SMED, TPM, TQM, 5S, Six Sigma</li>
+    </ul>
+  </section>
 
-<section id="skills">
-  <h2>🛠️ Skills</h2>
-  <div class="skills">
-    <div><strong>Tools & Technologies</strong><br>Python, Power BI, MS Office</div>
-    <div><strong>Research & Analytics</strong><br>SEM, ISM, AHP, Fuzzy TOPSIS</div>
-    <div><strong>Soft Skills</strong><br>Public Speaking, Team Leadership, Event Management</div>
-    <div><strong>Manufacturing Knowledge</strong><br>Lean, SMED, TPM,TQM, 5S, Six Sigma</div>
-  </div>
-</section>
+  <section id="awards" class="section">
+    <h2>🏆Awards & Recognitions</h2>
+    <ul>
+      <li><strong>Key Employee Recognition</strong><br>Akij Plastics Limited (January 2025) – contributed significantly to the company’s record monthly production.</li>
+    </ul>
+  </section>
 
-   <section id="contact">
-  <h2>📞 Contact Me</h2>
-  <p>Feel free to reach out to discuss research, collaboration, or just to connect!</p>
-  <p>Email: <a href="mailto:sifatajmeer@gmail.com">sifatajmeer@gmail.com</a></p>
-  <p>LinkedIn: <a href="https://www.linkedin.com/in/sifat-ajmeer-haque/" target="_blank">linkedin.com/in/sifatahque</a></p>
-  <p>Phone: +880 17XXXXXXXX</p>
-  <div class="social-icons">
-    <a href="https://www.linkedin.com/in/sifat-ajmeer-haque/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://github.com/yourgithub" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:sifatajmeer@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-</section>
+  <section id="contact" class="section">
+    <h2>📩Contact</h2>
+    <p>Feel free to reach out to discuss research, collaboration, or just to connect!</p>
+    <p><strong>📧Email:</strong> <a href="mailto:sifatajmeer@gmail.com">sifatajmeer@gmail.com</a></p>
+    <p>📍 Location: Rajshahi, Bangladesh</p>
+    <p><strong>🔗LinkedIn:</strong> <a href="https://www.linkedin.com/in/sifat-ajmeer-haque/" target="_blank">linkedin.com/in/sifat-ajmeer-haque</a></p>
+    <p><strong>📞Phone:</strong> <a href="tel:+88017XXXXXXXX">+880 17XXXXXXXX</a></p>
+  </section>
 
-   <footer>
-    All rights reserved © 2025 Sifat Ajmeer Haque
+  <footer style="text-align:center; padding: 1.5rem;">
+    <p>© 2025 Sifat Ajmeer Haque</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/sifat-ajmeer-haque/" target="_blank">🔗LinkedIn</a>
+    </div>
   </footer>
 
   <script>
+    const links = document.querySelectorAll('nav a');
+    const sections = document.querySelectorAll('.section');
     function showSection(id) {
-      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      sections.forEach(sec => sec.classList.remove('active'));
+      links.forEach(l => l.classList.remove('active'));
       document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
     }
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('light');
-      const toggle = document.querySelector('.dark-toggle');
-      toggle.textContent = document.body.classList.contains('light') ? '🌙' : '☀️';
-    }
-
-    // Set default visible section
-    document.addEventListener("DOMContentLoaded", () => {
-      showSection('about');
-    });
+    document.getElementById('darkToggle').onclick = () => {
+      document.body.classList.toggle('dark');
+      document.getElementById('darkToggle').textContent =
+        document.body.classList.contains('dark') ? 'Light Mode' : 'Dark Mode';
+    };
   </script>
-
 </body>
 </html>
